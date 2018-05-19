@@ -135,9 +135,6 @@ export default {
     },
     handleCancel () {
       this.$emit('cancel')
-    },
-    handleReset () {
-      this.$emit('reset')
     }
   }
 
