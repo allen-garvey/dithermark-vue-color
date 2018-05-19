@@ -18,7 +18,6 @@
   "author": "xiaokai <kexiaokai@gmail.com>",
   "dependencies": {
     "lodash.throttle": "^4.0.0",
-    "material-colors": "^1.0.0",
     "tinycolor2": "^1.1.2"
   },
   "devDependencies": {
