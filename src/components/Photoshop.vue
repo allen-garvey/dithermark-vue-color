@@ -2,8 +2,14 @@
   <div :class="['vc-photoshop', disableFields ? 'vc-photoshop__disable-fields' : '']">
     <div class="vc-ps-head">{{head}}</div>
     <div class="vc-ps-body">
-      <div class="vc-ps-saturation-wrap">
-        <saturation v-model="colors" @change="childChange"></saturation>
+      <div>
+        <div class="vc-ps-saturation-wrap">
+          <saturation v-model="colors" @change="childChange"></saturation>
+        </div>
+        <div class="vc-ps-button-container">
+          <button class="btn btn-default btn-sm" aria-label="cancel" @click="handleCancel">Cancel</button>
+          <button class="btn btn-primary btn-sm" aria-label="confirm" @click="handleAccept">Ok</button>
+        </div>
       </div>
       <div class="vc-ps-hue-wrap">
         <hue v-model="colors" @change="childChange" direction="vertical">
@@ -22,9 +28,6 @@
           <div class="vc-ps-previews__label">current</div>
         </div>
         <div class="vc-ps-actions" v-if="!disableFields">
-          <div class="vc-ps-ac-btn" aria-label="confirm" @click="handleAccept">Ok</div>
-          <div class="vc-ps-ac-btn" aria-label="cancel" @click="handleCancel">Cancel</div>
-
           <div class="vc-ps-fields">
             <!-- hsla -->
             <ed-in label="h" desc="°" :value="hsv.h" @change="inputChange"></ed-in>
@@ -230,7 +233,7 @@ export default {
   margin-left: 20px;
   flex: 1;
 }
-.vc-ps-ac-btn {
+/* .vc-ps-ac-btn {
   cursor: pointer;
   background-image: linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%);
   border: 1px solid #878787;
@@ -242,7 +245,7 @@ export default {
   line-height: 20px;
   text-align: center;
   margin-bottom: 10px;
-}
+} */
 .vc-ps-previews {
   width: 60px;
 }
@@ -319,5 +322,8 @@ export default {
   font-size: 13px;
   height: 18px;
   line-height: 22px;
+}
+.vc-ps-button-container{
+  margin-top: 8px;
 }
 </style>
