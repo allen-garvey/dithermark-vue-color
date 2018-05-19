@@ -131,10 +131,10 @@ export default {
       })
     },
     handleAccept () {
-      this.$emit('ok')
+      this.$emit('ok', this.currentColor)
     },
     handleCancel () {
-      this.$emit('cancel')
+      this.$emit('cancel', this.currentColor)
     }
   }
 
