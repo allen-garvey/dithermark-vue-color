@@ -2,7 +2,7 @@
   <div :class="['vc-photoshop', disableFields ? 'vc-photoshop__disable-fields' : '']">
     <div class="vc-ps-head">{{head}}</div>
     <div class="vc-ps-body">
-      <div>
+      <div class="vc-ps-first-column">
         <div class="vc-ps-saturation-wrap">
           <saturation v-model="colors" @change="childChange"></saturation>
         </div>
@@ -268,12 +268,16 @@ export default {
   margin-top: 8px;
   display: flex;
   justify-content: space-between;
-}
-.vc-ps-button-container button:last-of-type{
-  margin-right: 24px;
+  flex-grow: 1;
+  align-items: center;
 }
 .vc-editable-input{
   min-width: -webkit-max-content;
   min-width: max-content;
+}
+.vc-ps-first-column{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>
