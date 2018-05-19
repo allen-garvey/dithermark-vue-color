@@ -1,6 +1,6 @@
 # vue-color Dithermark
 
-Fork of [vue-color](https://github.com/xiaokaike/vue-color) to create custom build for [Dithermark](https://github.com/allen-garvey/dithermark)
+Fork of [vue-color](https://github.com/xiaokaike/vue-color) v2.4.6 to create custom build for [Dithermark](https://github.com/allen-garvey/dithermark)
 
 ## Getting Starting
 
