@@ -39,8 +39,6 @@
             <!-- hex -->
             <ed-in label="#" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
           </div>
-
-          <div v-if="hasResetButton" class="vc-ps-ac-btn" aria-label="reset" @click="handleReset">Reset</div>
         </div>
       </div>
     </div>
@@ -64,11 +62,7 @@ export default {
     disableFields: {
       type: Boolean,
       default: false
-    },
-    hasResetButton: {
-      type: Boolean,
-      default: false
-    },
+    }
   },
   components: {
     saturation,
