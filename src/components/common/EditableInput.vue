@@ -3,6 +3,7 @@
     <label class="vc-input__label">{{label}}
       <input class="vc-input__input"
       :aria-label="desc?label+'('+desc+')':label"
+      :type="type"
       v-model="val"
       @keydown="handleKeyDown"
       @input="update"
@@ -17,6 +18,7 @@ export default {
   name: 'editableInput',
   props: {
     label: String,
+    type: String,
     desc: String,
     value: [String, Number],
     max: Number,

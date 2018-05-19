@@ -30,9 +30,9 @@
         <div class="vc-ps-actions" v-if="!disableFields">
           <div class="vc-ps-fields">
             <!-- hsla -->
-            <ed-in label="h" desc="°" :value="hsv.h" @change="inputChange"></ed-in>
-            <ed-in label="s" desc="%" :value="hsv.s" :max="100" @change="inputChange"></ed-in>
-            <ed-in label="v" desc="%" :value="hsv.v" :max="100" @change="inputChange"></ed-in>
+            <ed-in label="h" desc="°" type="number" :value="hsv.h" @change="inputChange"></ed-in>
+            <ed-in label="s" desc="%" type="number" :value="hsv.s" :max="100" @change="inputChange"></ed-in>
+            <ed-in label="v" desc="%" type="number" :value="hsv.v" :max="100" @change="inputChange"></ed-in>
             <div class="vc-ps-fields__divider"></div>
             <!-- rgba -->
             <ed-in label="r" :value="colors.rgba.r" @change="inputChange"></ed-in>
@@ -40,7 +40,7 @@
             <ed-in label="b" :value="colors.rgba.b" @change="inputChange"></ed-in>
             <div class="vc-ps-fields__divider"></div>
             <!-- hex -->
-            <ed-in label="#" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
+            <ed-in label="#" type="text" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
           </div>
         </div>
       </div>
