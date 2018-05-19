@@ -18,7 +18,7 @@
           </div>
         </hue>
       </div>
-      <div :class="['vc-ps-controls', disableFields ? 'vc-ps-controls__disable-fields' : '']">
+      <div class="vc-ps-controls">
         <div class="vc-ps-previews">
           <div class="vc-ps-previews__label">new</div>
           <div class="vc-ps-previews__swatches">
@@ -146,24 +146,23 @@ export default {
 
 <style>
 .vc-photoshop {
+  min-width: -webkit-max-content;
+  min-width: max-content;
   background: #DCDCDC;
-  border-radius: 4px;
   box-sizing: initial;
-  width: 513px;
+  display: inline-block;
 }
 .vc-photoshop__disable-fields {
   width: 390px;
 }
 .vc-ps-head {
-  height: 23px;
-  line-height: 24px;
-  border-radius: 4px 4px 0 0;
+  padding: 6px 0 0;
   font-size: 13px;
   color: #4D4D4D;
   text-align: center;
 }
 .vc-ps-body {
-  padding: 15px;
+  padding: 2px 7px 5px 5px;
   display: flex;
 }
 
@@ -221,31 +220,9 @@ export default {
 }
 
 .vc-ps-controls {
-  width: 180px;
-  margin-left: 10px;
-  display: flex;
-}
-.vc-ps-controls__disable-fields {
-  width: auto;
+  margin-left: 16px;
 }
 
-.vc-ps-actions {
-  margin-left: 20px;
-  flex: 1;
-}
-/* .vc-ps-ac-btn {
-  cursor: pointer;
-  background-image: linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%);
-  border: 1px solid #878787;
-  border-radius: 2px;
-  height: 20px;
-  box-shadow: 0 1px 0 0 #EAEAEA;
-  font-size: 14px;
-  color: #000;
-  line-height: 20px;
-  text-align: center;
-  margin-bottom: 10px;
-} */
 .vc-ps-previews {
   width: 60px;
 }
@@ -267,63 +244,36 @@ export default {
 
 .vc-ps-fields {
   padding-top: 5px;
-  padding-bottom: 9px;
-  width: 80px;
-  position: relative;
 }
 .vc-ps-fields .vc-input__input {
-  margin-left: 40%;
-  width: 40%;
-  height: 18px;
+  width: 3em;
   border: 1px solid #888888;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC;
   margin-bottom: 5px;
   font-size: 13px;
   padding-left: 3px;
-  margin-right: 10px;
 }
 .vc-ps-fields .vc-input__label, .vc-ps-fields .vc-input__desc {
-  top: 0;
   text-transform: uppercase;
   font-size: 13px;
-  height: 18px;
-  line-height: 22px;
-  position: absolute;
 }
-.vc-ps-fields .vc-input__label {
-  left: 0;
-  width: 34px;
-}
-.vc-ps-fields .vc-input__desc {
-  right: 0;
-  width: 0;
-}
-
 .vc-ps-fields__divider {
   height: 5px;
 }
 
 .vc-ps-fields__hex .vc-input__input {
-  margin-left: 20%;
-  width: 80%;
-  height: 18px;
-  border: 1px solid #888888;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC;
-  margin-bottom: 6px;
-  font-size: 13px;
-  padding-left: 3px;
-}
-.vc-ps-fields__hex .vc-input__label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 14px;
-  text-transform: uppercase;
-  font-size: 13px;
-  height: 18px;
-  line-height: 22px;
+  width: 4.5em;
 }
 .vc-ps-button-container{
   margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.vc-ps-button-container button:last-of-type{
+  margin-right: 24px;
+}
+.vc-editable-input{
+  min-width: -webkit-max-content;
+  min-width: max-content;
 }
 </style>

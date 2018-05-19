@@ -1,12 +1,13 @@
 <template>
   <div class="vc-editable-input">
-    <input class="vc-input__input"
+    <label class="vc-input__label">{{label}}
+      <input class="vc-input__input"
       :aria-label="desc?label+'('+desc+')':label"
       v-model="val"
       @keydown="handleKeyDown"
       @input="update"
       ref="input">
-    <span class="vc-input__label">{{label}}</span>
+    </label>
     <span class="vc-input__desc">{{desc}}</span>
   </div>
 </template>
@@ -89,17 +90,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.vc-editable-input {
-  position: relative;
-}
-.vc-input__input {
-  padding: 0;
-  border: 0;
-  outline: none;
-}
-.vc-input__label {
-  text-transform: capitalize;
-}
-</style>
