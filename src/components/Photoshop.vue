@@ -35,9 +35,9 @@
             <ed-in label="v" desc="%" type="number" :value="hsv.v" :max="100" @change="inputChange"></ed-in>
             <div class="vc-ps-fields__divider"></div>
             <!-- rgba -->
-            <ed-in label="r" :value="colors.rgba.r" @change="inputChange"></ed-in>
-            <ed-in label="g" :value="colors.rgba.g" @change="inputChange"></ed-in>
-            <ed-in label="b" :value="colors.rgba.b" @change="inputChange"></ed-in>
+            <ed-in label="r" type="number" :value="colors.rgba.r" @change="inputChange"></ed-in>
+            <ed-in label="g" type="number" :value="colors.rgba.g" @change="inputChange"></ed-in>
+            <ed-in label="b" type="number" :value="colors.rgba.b" @change="inputChange"></ed-in>
             <div class="vc-ps-fields__divider"></div>
             <!-- hex -->
             <ed-in label="#" type="text" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
