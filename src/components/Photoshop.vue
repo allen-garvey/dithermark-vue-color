@@ -22,8 +22,8 @@
           <div class="vc-ps-previews__label">current</div>
         </div>
         <div class="vc-ps-actions" v-if="!disableFields">
-          <div class="vc-ps-ac-btn" aria-label="confirm" @click="handleAccept">{{ acceptLabel }}</div>
-          <div class="vc-ps-ac-btn" aria-label="cancel" @click="handleCancel">{{ cancelLabel }}</div>
+          <div class="vc-ps-ac-btn" aria-label="confirm" @click="handleAccept">Ok</div>
+          <div class="vc-ps-ac-btn" aria-label="cancel" @click="handleCancel">Cancel</div>
 
           <div class="vc-ps-fields">
             <!-- hsla -->
@@ -40,7 +40,7 @@
             <ed-in label="#" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
           </div>
 
-          <div v-if="hasResetButton" class="vc-ps-ac-btn" aria-label="reset" @click="handleReset">{{ resetLabel }}</div>
+          <div v-if="hasResetButton" class="vc-ps-ac-btn" aria-label="reset" @click="handleReset">Reset</div>
         </div>
       </div>
     </div>
@@ -69,18 +69,6 @@ export default {
       type: Boolean,
       default: false
     },
-    acceptLabel: {
-      type: String,
-      default: 'OK'
-    },
-    cancelLabel: {
-      type: String,
-      default: 'Cancel'
-    },
-    resetLabel: {
-      type: String,
-      default: 'Reset'
-    }
   },
   components: {
     saturation,
