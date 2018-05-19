@@ -149,6 +149,7 @@ export default {
   min-width: -webkit-max-content;
   min-width: max-content;
   background: #DCDCDC;
+  color: #000;
   box-sizing: initial;
   display: inline-block;
 }
@@ -158,7 +159,6 @@ export default {
 .vc-ps-head {
   padding: 6px 0 0;
   font-size: 13px;
-  color: #4D4D4D;
   text-align: center;
 }
 .vc-ps-body {
@@ -238,7 +238,6 @@ export default {
 }
 .vc-ps-previews__label {
   font-size: 14px;
-  color: #000;
   text-align: center;
 }
 
