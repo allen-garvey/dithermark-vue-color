@@ -163,18 +163,13 @@ export default {
 .vc-photoshop {
   background: #DCDCDC;
   border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15);
   box-sizing: initial;
   width: 513px;
-  font-family: Roboto;
 }
 .vc-photoshop__disable-fields {
   width: 390px;
 }
 .vc-ps-head {
-  background-image: linear-gradient(-180deg, #F0F0F0 0%, #D4D4D4 100%);
-  border-bottom: 1px solid #B1B1B1;
-  box-shadow: inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02);
   height: 23px;
   line-height: 24px;
   border-radius: 4px 4px 0 0;
