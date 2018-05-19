@@ -52,7 +52,6 @@ import colorMixin from '../mixin/color'
 import editableInput from './common/EditableInput.vue'
 import saturation from './common/Saturation.vue'
 import hue from './common/Hue.vue'
-import alpha from './common/Alpha.vue'
 
 export default {
   name: 'Photoshop',
@@ -86,7 +85,6 @@ export default {
   components: {
     saturation,
     hue,
-    alpha,
     'ed-in': editableInput
   },
   data () {
