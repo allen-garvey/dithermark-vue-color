@@ -182,7 +182,7 @@ export default {
 .vc-ps-hue-wrap {
   position: relative;
   height: 256px;
-  width: 19px;
+  width: 37px;
   margin-left: 10px;
   border: 2px solid #B3B3B3;
   border-bottom: 2px solid #F0F0F0;
