@@ -1,5 +1,6 @@
 {
   "name": "vue-color",
+  "sideEffects": false,
   "version": "2.4.6",
   "description": "Color of Vue Components",
   "keywords": [
