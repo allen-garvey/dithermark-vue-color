@@ -1,9 +1,4 @@
-var path = require('path')
 var vueLoaderConfig = require('./vue-loader.conf')
-
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
 
 module.exports = {
   entry: {
@@ -12,7 +7,7 @@ module.exports = {
   output: {
     filename: './dist/[name].js',
     library: 'VueColor',
-    libraryTarget: 'umd'
+    libraryTarget: 'window'
   },
   module: {
     rules: [
@@ -20,12 +15,6 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src')],
-        exclude: /node_modules/
       }
     ]
   }
