@@ -261,7 +261,6 @@ export default {
   width: 4.5em;
 }
 .vc-ps-button-container{
-  margin-top: 8px;
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
