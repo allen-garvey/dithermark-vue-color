@@ -13,13 +13,7 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: ['vue-style-loader', {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              sourceMap: false
-            }
-          }]
+          loaders: ['vue-style-loader']
         }
       }
     ]
