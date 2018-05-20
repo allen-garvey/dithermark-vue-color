@@ -6,7 +6,7 @@ module.exports = {
   },
   mode: 'development',
   output: {
-    filename: './dist/[name].js',
+    filename: './[name].js',
     library: 'VueColor',
     libraryTarget: 'window'
   },
