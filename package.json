@@ -1,6 +1,9 @@
 {
   "name": "vue-color",
-  "sideEffects": false,
+  "sideEffects": [
+    "./src/components/*.vue",
+    "./src/components/common/*.vue"
+  ],
   "version": "2.4.6",
   "description": "Color of Vue Components",
   "keywords": [
