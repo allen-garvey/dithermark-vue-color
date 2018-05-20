@@ -1,4 +1,4 @@
-var vueLoaderConfig = require('./vue-loader.conf')
+var utils = require('./utils')
 
 module.exports = {
   entry: {
@@ -14,7 +14,12 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: {
+          loaders: utils.cssLoaders({
+            sourceMap: false,
+            extract: process.env.NODE_ENV === 'production'
+          })
+        }
       }
     ]
   }

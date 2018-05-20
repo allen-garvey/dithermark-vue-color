@@ -15,22 +15,14 @@ exports.cssLoaders = function (options) {
   var cssLoader = {
     loader: 'css-loader',
     options: {
-      minimize: process.env.NODE_ENV === 'production',
+      minimize: true,
       sourceMap: options.sourceMap
     }
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders () {
     var loaders = [cssLoader]
-    if (loader) {
-      loaders.push({
-        loader: loader + '-loader',
-        options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap
-        })
-      })
-    }
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
@@ -46,13 +38,7 @@ exports.cssLoaders = function (options) {
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
-    css: generateLoaders(),
-    postcss: generateLoaders(),
-    less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    css: generateLoaders()
   }
 }
 
