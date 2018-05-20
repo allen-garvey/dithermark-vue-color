@@ -5,4 +5,4 @@ const VueColor = {
   Photoshop
 }
 
-export default VueColor
+export {VueColor}
