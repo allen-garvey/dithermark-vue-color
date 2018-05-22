@@ -1,6 +1,6 @@
 <template>
   <div class="vc-editable-input">
-    <label class="vc-input__label">{{label}}
+    <label class="vc-input__label" :title="title">{{label}}
       <input class="vc-input__input"
       :aria-label="desc?label+'('+desc+')':label"
       :type="type"
@@ -18,6 +18,7 @@ export default {
   name: 'editableInput',
   props: {
     label: String,
+    title: String,
     type: String,
     desc: String,
     value: [String, Number],
