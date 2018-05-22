@@ -14,8 +14,8 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "dev": "npm run lint && webpack --progress --hide-modules --config  ./build/webpack.release.js",
-    "release": "npm run lint && webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
-    "release:watch": "npm run lint && webpack --progress --hide-modules --watch --config  ./build/webpack.release.min.js"
+    "release": "webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
+    "release:watch": "webpack --progress --hide-modules --watch --config  ./build/webpack.release.min.js"
   },
   "repository": {
     "type": "git",
