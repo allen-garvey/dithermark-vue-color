@@ -145,8 +145,6 @@ export default {
 .vc-photoshop {
   min-width: -webkit-max-content;
   min-width: max-content;
-  background: #DCDCDC;
-  color: #000;
   box-sizing: initial;
   display: inline-block;
 }
