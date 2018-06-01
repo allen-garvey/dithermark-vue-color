@@ -31,13 +31,13 @@
           <div class="vc-ps-fields">
             <!-- hsla -->
             <ed-in label="h" data-name="h" title="Hue" desc="°" type="number" :value="hsv.h" @change="inputChange"></ed-in>
-            <ed-in label="s" data-name="s" title="Saturation" desc="%" type="number" :value="hsv.s" :max="100" @change="inputChange"></ed-in>
-            <ed-in label="v" data-name="v" title="Value" desc="%" type="number" :value="hsv.v" :max="100" @change="inputChange"></ed-in>
+            <ed-in label="s" data-name="s" title="Saturation" desc="%" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
+            <ed-in label="v" data-name="v" title="Value" desc="%" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
             <div class="vc-ps-fields__divider"></div>
             <!-- rgba -->
-            <ed-in label="r" data-name="r" title="Red" type="number" :value="colors.rgba.r" @change="inputChange"></ed-in>
-            <ed-in label="g" data-name="g" title="Green" type="number" :value="colors.rgba.g" @change="inputChange"></ed-in>
-            <ed-in label="b" data-name="b" title="Blue" type="number" :value="colors.rgba.b" @change="inputChange"></ed-in>
+            <ed-in label="r" data-name="r" title="Red" type="number" :value="colors.rgba.r" :max="255" :min="0" @change="inputChange"></ed-in>
+            <ed-in label="g" data-name="g" title="Green" type="number" :value="colors.rgba.g" :max="255" :min="0" @change="inputChange"></ed-in>
+            <ed-in label="b" data-name="b" title="Blue" type="number" :value="colors.rgba.b" :max="255" :min="0" @change="inputChange"></ed-in>
             <div class="vc-ps-fields__divider"></div>
             <!-- hex -->
             <ed-in label="#" data-name="#" title="Color hex representation" type="text" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
