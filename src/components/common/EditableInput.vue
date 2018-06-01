@@ -36,10 +36,13 @@ export default {
         return this.value
       },
       set (v) {
-        // TODO: min
-        if (!(this.max === undefined) && +v > this.max) {
+        if (this.max !== undefined && +v > this.max) {
           this.$refs.input.value = this.max
-        } else {
+        } 
+        else if(this.min !== undefined && +v < this.min){
+          this.$refs.input.value = this.min
+        }
+        else {
           return v
         }
       }
