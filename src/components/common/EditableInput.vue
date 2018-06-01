@@ -50,12 +50,10 @@ export default {
     },
     handleChange (newVal) {
       let data = {}
+      //not great that we're using the label to figure out what kind of data this is supposed to be,
+      //but we're going to leave this for now
       data[this.label] = newVal
-      if (data.hex === undefined && data['#'] === undefined) {
-        this.$emit('change', data)
-      } else if (newVal.length > 5) {
-        this.$emit('change', data)
-      }
+      this.$emit('change', data)
     },
     // **** unused
     // handleBlur (e) {
