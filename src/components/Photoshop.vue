@@ -54,6 +54,22 @@ import editableInput from './common/EditableInput.vue'
 import saturation from './common/Saturation.vue'
 import hue from './common/Hue.vue'
 
+function containsAnyKey(object, keys){
+  for(let key of keys){
+    if(key in object){
+      return true
+    }
+  }
+  return false
+}
+//hues greater than 360 are handled automatically
+function wrapHue(hue){
+  if(hue < 0){
+    return 360 + (hue % 360);
+  }
+  return hue
+}
+
 export default {
   name: 'Photoshop',
   mixins: [colorMixin],
@@ -102,24 +118,26 @@ export default {
       if (!data) {
         return
       }
-      if (data['#']) {
-        this.isValidHex(data['#']) && this.colorChange({
-          hex: data['#'],
-          source: 'hex'
-        })
-      } else if (data.r || data.g || data.b || data.a) {
+      if ('#' in data) {
+        if(this.isValidHex(data['#'])){
+          this.colorChange({
+            hex: data['#'],
+            source: 'hex'
+          })
+        }
+      } else if (containsAnyKey(data, ['r', 'g', 'b', 'a'])) {
         this.colorChange({
-          r: data.r || this.colors.rgba.r,
-          g: data.g || this.colors.rgba.g,
-          b: data.b || this.colors.rgba.b,
-          a: data.a || this.colors.rgba.a,
+          r: 'r' in data ? data.r : this.colors.rgba.r,
+          g: 'g' in data ? data.g : this.colors.rgba.g,
+          b: 'b' in data ? data.b : this.colors.rgba.b,
+          a: 'a' in data ? data.a : this.colors.rgba.a,
           source: 'rgba'
         })
-      } else if (data.h || data.s || data.v) {
+      } else if (containsAnyKey(data, ['h', 's', 'v'])) {
         this.colorChange({
-          h: data.h || this.colors.hsv.h,
-          s: (data.s / 100) || this.colors.hsv.s,
-          v: (data.v / 100) || this.colors.hsv.v,
+          h: 'h' in data ? wrapHue(data.h) : this.colors.hsv.h,
+          s: 's' in data ? (data.s / 100) : this.colors.hsv.s,
+          v: 'v' in data ? (data.v / 100) : this.colors.hsv.v,
           source: 'hsv'
         })
       }
