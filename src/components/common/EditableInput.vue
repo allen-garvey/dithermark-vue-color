@@ -18,6 +18,7 @@ export default {
   name: 'editableInput',
   props: {
     label: String,
+    dataName: String,
     title: String,
     type: String,
     desc: String,
@@ -50,9 +51,7 @@ export default {
     },
     handleChange (newVal) {
       let data = {}
-      //not great that we're using the label to figure out what kind of data this is supposed to be,
-      //but we're going to leave this for now
-      data[this.label] = newVal
+      data[this.dataName] = newVal
       this.$emit('change', data)
     },
     // **** unused
