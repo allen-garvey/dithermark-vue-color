@@ -33,9 +33,9 @@
           <div class="vc-ps-fields">
             <!-- hsv -->
             <div class="vc-ps-fields-group vc-ps-hsv-fields">
-              <ed-in label="h" data-name="h" title="Hue" desc="°" type="number" :value="hsv.h" @change="inputChange"></ed-in>
-              <ed-in label="s" data-name="s" title="Saturation" desc="%" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
-              <ed-in label="v" data-name="v" title="Value" desc="%" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="h" data-name="h" title="Hue" type="number" :value="hsv.h" @change="inputChange"></ed-in>
+              <ed-in label="s" data-name="s" title="Saturation" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="v" data-name="v" title="Value" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
             </div>
             <!-- rgba -->
             <div class="vc-ps-fields-group vc-ps-rgb-fields">
@@ -278,7 +278,7 @@ export default {
   font-size: 13px;
   padding-left: 3px;
 }
-.vc-ps-fields .vc-input__label, .vc-ps-fields .vc-input__desc {
+.vc-ps-fields .vc-input__label{
   text-transform: uppercase;
   font-size: 13px;
 }

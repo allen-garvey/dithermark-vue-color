@@ -2,14 +2,13 @@
   <div class="vc-editable-input">
     <label class="vc-input__label" :title="title">{{label}}
       <input class="vc-input__input"
-      :aria-label="desc?label+'('+desc+')':label"
+      :aria-label="label"
       :type="type"
       v-model="val"
       @keydown="handleKeyDown"
       @input="update"
       ref="input">
     </label>
-    <span class="vc-input__desc">{{desc}}</span>
   </div>
 </template>
 
@@ -21,7 +20,6 @@ export default {
     dataName: String,
     title: String,
     type: String,
-    desc: String,
     value: [String, Number],
     max: Number,
     min: Number,
