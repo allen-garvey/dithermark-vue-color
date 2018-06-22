@@ -233,7 +233,7 @@ export default {
 }
 
 .vc-ps-controls {
-  margin-left: 16px;
+  margin-left: 12px;
 }
 
 .vc-ps-previews {
