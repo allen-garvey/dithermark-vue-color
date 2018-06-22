@@ -2,21 +2,23 @@
   <div :class="['vc-photoshop', disableFields ? 'vc-photoshop__disable-fields' : '']">
     <div class="vc-ps-head">{{head}}</div>
     <div class="vc-ps-body">
-      <div class="vc-ps-first-column">
-        <div class="vc-ps-saturation-wrap">
-          <saturation v-model="colors" @change="childChange"></saturation>
-        </div>
-        <div class="vc-ps-button-container">
-          <button class="btn btn-default btn-sm" aria-label="cancel" @click="handleCancel">Cancel</button>
-          <button class="btn btn-primary btn-sm" aria-label="confirm" @click="handleAccept">Ok</button>
-        </div>
-      </div>
-      <div class="vc-ps-hue-wrap">
-        <hue v-model="colors" @change="childChange" direction="vertical">
-          <div class="vc-ps-hue-pointer">
-            <i class="vc-ps-hue-pointer--left"></i><i class="vc-ps-hue-pointer--right"></i>
+      <div class="vc-ps-body-main">
+        <div class="vc-ps-first-column">
+          <div class="vc-ps-saturation-wrap">
+            <saturation v-model="colors" @change="childChange"></saturation>
           </div>
-        </hue>
+          <div class="vc-ps-button-container vc-ps-button-container-main">
+            <button class="btn btn-default btn-sm" aria-label="cancel" @click="handleCancel">Cancel</button>
+            <button class="btn btn-primary btn-sm" aria-label="confirm" @click="handleAccept">Ok</button>
+          </div>
+        </div>
+        <div class="vc-ps-hue-wrap">
+          <hue v-model="colors" @change="childChange" direction="vertical">
+            <div class="vc-ps-hue-pointer">
+              <i class="vc-ps-hue-pointer--left"></i><i class="vc-ps-hue-pointer--right"></i>
+            </div>
+          </hue>
+        </div>
       </div>
       <div class="vc-ps-controls">
         <div class="vc-ps-previews">
@@ -29,20 +31,28 @@
         </div>
         <div class="vc-ps-actions" v-if="!disableFields">
           <div class="vc-ps-fields">
-            <!-- hsla -->
-            <ed-in label="h" data-name="h" title="Hue" desc="°" type="number" :value="hsv.h" @change="inputChange"></ed-in>
-            <ed-in label="s" data-name="s" title="Saturation" desc="%" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
-            <ed-in label="v" data-name="v" title="Value" desc="%" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
-            <div class="vc-ps-fields__divider"></div>
+            <!-- hsv -->
+            <div class="vc-ps-fields-group vc-ps-hsv-fields">
+              <ed-in label="h" data-name="h" title="Hue" desc="°" type="number" :value="hsv.h" @change="inputChange"></ed-in>
+              <ed-in label="s" data-name="s" title="Saturation" desc="%" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="v" data-name="v" title="Value" desc="%" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
+            </div>
             <!-- rgba -->
-            <ed-in label="r" data-name="r" title="Red" type="number" :value="colors.rgba.r" :max="255" :min="0" @change="inputChange"></ed-in>
-            <ed-in label="g" data-name="g" title="Green" type="number" :value="colors.rgba.g" :max="255" :min="0" @change="inputChange"></ed-in>
-            <ed-in label="b" data-name="b" title="Blue" type="number" :value="colors.rgba.b" :max="255" :min="0" @change="inputChange"></ed-in>
-            <div class="vc-ps-fields__divider"></div>
+            <div class="vc-ps-fields-group vc-ps-rgb-fields">
+              <ed-in label="r" data-name="r" title="Red" type="number" :value="colors.rgba.r" :max="255" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="g" data-name="g" title="Green" type="number" :value="colors.rgba.g" :max="255" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="b" data-name="b" title="Blue" type="number" :value="colors.rgba.b" :max="255" :min="0" @change="inputChange"></ed-in>
+            </div>
             <!-- hex -->
-            <ed-in label="#" data-name="#" title="Color hex representation" type="text" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
+            <div class="vc-ps-fields-group vc-ps-hex-fields">
+              <ed-in label="#" data-name="#" title="Color hex representation" type="text" class="vc-ps-fields__hex" :value="hex" @change="inputChange"></ed-in>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="vc-ps-button-container vc-ps-button-container-secondary">
+        <button class="btn btn-default btn-sm" aria-label="cancel" @click="handleCancel">Cancel</button>
+        <button class="btn btn-primary btn-sm" aria-label="confirm" @click="handleAccept">Ok</button>
       </div>
     </div>
   </div>
@@ -161,8 +171,6 @@ export default {
 
 <style>
 .vc-photoshop {
-  min-width: -webkit-max-content;
-  min-width: max-content;
   box-sizing: initial;
   display: inline-block;
 }
@@ -176,6 +184,9 @@ export default {
 }
 .vc-ps-body {
   padding: 2px 7px 5px 5px;
+  display: flex;
+}
+.vc-ps-body-main{
   display: flex;
 }
 
@@ -253,7 +264,9 @@ export default {
   font-size: 14px;
   text-align: center;
 }
-
+.vc-ps-fields-group{
+  margin-bottom: 5px;
+}
 .vc-ps-fields {
   padding-top: 5px;
 }
@@ -268,9 +281,6 @@ export default {
 .vc-ps-fields .vc-input__label, .vc-ps-fields .vc-input__desc {
   text-transform: uppercase;
   font-size: 13px;
-}
-.vc-ps-fields__divider {
-  height: 5px;
 }
 
 .vc-ps-fields__hex .vc-input__input {
