@@ -293,8 +293,7 @@ export default {
   align-items: center;
 }
 .vc-editable-input{
-  min-width: -webkit-max-content;
-  min-width: max-content;
+  white-space: nowrap;
 }
 .vc-ps-first-column{
   display: inline-flex;
