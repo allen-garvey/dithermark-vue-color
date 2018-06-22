@@ -284,7 +284,7 @@ export default {
 }
 
 .vc-ps-fields__hex .vc-input__input {
-  width: 4.2em;
+  width: 4em;
 }
 .vc-ps-button-container{
   display: flex;
