@@ -163,7 +163,7 @@ export default {
       })
     },
     handleAccept () {
-      this.$emit('ok', this.currentColor)
+      this.$emit('ok', this.val)
     },
     handleCancel () {
       this.$emit('cancel', this.currentColor)
