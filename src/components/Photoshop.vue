@@ -91,6 +91,10 @@ export default {
     disableFields: {
       type: Boolean,
       default: false
+    },
+    shouldLiveUpdate: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
