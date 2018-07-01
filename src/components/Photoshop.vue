@@ -34,8 +34,8 @@
             <!-- hsv -->
             <div class="vc-ps-fields-group vc-ps-hsv-fields">
               <ed-in label="h" data-name="h" title="Hue" type="number" :value="hsv.h" @change="inputChange"></ed-in>
-              <ed-in label="s" data-name="s" title="Saturation" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
-              <ed-in label="v" data-name="v" title="Value" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="s" data-name="s" title="Saturation" type="percent" :value="hsv.s" :max="1" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="v" data-name="v" title="Value" type="percent" :value="hsv.v" :max="1" :min="0" @change="inputChange"></ed-in>
             </div>
             <!-- rgba -->
             <div class="vc-ps-fields-group vc-ps-rgb-fields">
@@ -103,9 +103,9 @@ export default {
     hsv () {
       const hsv = this.colors.hsv
       return {
-        h: hsv.h.toFixed(),
-        s: (hsv.s * 100).toFixed(),
-        v: (hsv.v * 100).toFixed()
+        h: hsv.h,
+        s: hsv.s,
+        v: hsv.v
       }
     },
     hex () {

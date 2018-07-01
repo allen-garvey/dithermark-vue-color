@@ -3,8 +3,8 @@
     <label class="vc-input__label" :title="title">{{label}}
       <input class="vc-input__input"
       :aria-label="label"
-      :type="type"
-      v-model="val"
+      :type="inputType"
+      v-model="displayVal"
       @keydown="handleKeyDown"
       @input="update"
       ref="input">
@@ -44,6 +44,28 @@ export default {
           return v
         }
       }
+    },
+    displayVal: {
+      get () {
+        if(this.type === 'percent'){
+          return Math.round(this.val * 100)
+        }
+        return this.val
+      },
+      set (v) {
+        if(this.type === 'percent'){
+          this.val = v / 100
+        }
+        else{
+          this.val = v
+        }
+      }
+    },
+    inputType: function(){
+      if(this.type === 'percent'){
+        return 'number'
+      }
+      return this.type
     }
   },
   methods: {
