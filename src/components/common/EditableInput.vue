@@ -53,7 +53,7 @@ export default {
     handleChange (newVal) {
       let data = {}
       data[this.dataName] = newVal
-      this.$emit('change', data)
+      this.$emit('change', data, this.dataName)
     },
     // **** unused
     // handleBlur (e) {

@@ -64,14 +64,6 @@ import editableInput from './common/EditableInput.vue'
 import saturation from './common/Saturation.vue'
 import hue from './common/Hue.vue'
 
-function containsAnyKey(object, keys){
-  for(let key of keys){
-    if(key in object){
-      return true
-    }
-  }
-  return false
-}
 //hues greater than 360 are handled automatically
 function wrapHue(hue){
   if(hue < 0){
@@ -128,28 +120,27 @@ export default {
     childChange (data) {
       this.colorChange(data)
     },
-    inputChange (data) {
+    inputChange (data, dataKey) {
       if (!data) {
         return
       }
-      if ('#' in data) {
+      if (dataKey === '#') {
         if(this.isValidHex(data['#'])){
           this.colorChange({
             hex: data['#'],
           })
         }
-      } else if (containsAnyKey(data, ['r', 'g', 'b', 'a'])) {
+      } else if (['r', 'g', 'b'].includes(dataKey)) {
         this.colorChange({
-          r: 'r' in data ? data.r : this.colors.rgba.r,
-          g: 'g' in data ? data.g : this.colors.rgba.g,
-          b: 'b' in data ? data.b : this.colors.rgba.b,
-          a: 'a' in data ? data.a : this.colors.rgba.a,
+          r: 'r' === dataKey ? data.r : this.colors.rgba.r,
+          g: 'g' === dataKey ? data.g : this.colors.rgba.g,
+          b: 'b' === dataKey ? data.b : this.colors.rgba.b,
         })
-      } else if (containsAnyKey(data, ['h', 's', 'v'])) {
+      } else if (['h', 's', 'v'].includes(dataKey)) {
         this.colorChange({
-          h: 'h' in data ? wrapHue(data.h) : this.colors.hsv.h,
-          s: 's' in data ? (data.s / 100) : this.colors.hsv.s,
-          v: 'v' in data ? (data.v / 100) : this.colors.hsv.v,
+          h: 'h' === dataKey ? wrapHue(data.h) : this.colors.hsv.h,
+          s: 's' === dataKey ? (data.s / 100) : this.colors.hsv.s,
+          v: 'v' === dataKey ? (data.v / 100) : this.colors.hsv.v,
         })
       }
     },
