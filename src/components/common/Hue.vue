@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     colors () {
-      const h = this.value.hsl.h
+      const h = this.value.hsv.h
       if (h !== 0 && h - this.oldHue > 0) this.pullDirection = 'right'
       if (h !== 0 && h - this.oldHue < 0) this.pullDirection = 'left'
       this.oldHue = h
@@ -45,8 +45,8 @@ export default {
     },
     pointerTop () {
       if (this.direction === 'vertical') {
-        if (this.colors.hsl.h === 0 && this.pullDirection === 'right') return 0
-        return -((this.colors.hsl.h * 100) / 360) + 100 + '%'
+        if (this.colors.hsv.h === 0 && this.pullDirection === 'right') return 0
+        return -((this.colors.hsv.h * 100) / 360) + 100 + '%'
       } else {
         return 0
       }
@@ -55,8 +55,8 @@ export default {
       if (this.direction === 'vertical') {
         return 0
       } else {
-        if (this.colors.hsl.h === 0 && this.pullDirection === 'right') return '100%'
-        return (this.colors.hsl.h * 100) / 360 + '%'
+        if (this.colors.hsv.h === 0 && this.pullDirection === 'right') return '100%'
+        return (this.colors.hsv.h * 100) / 360 + '%'
       }
     }
   },
@@ -88,13 +88,11 @@ export default {
           h = (360 * percent / 100)
         }
 
-        if (this.colors.hsl.h !== h) {
+        if (this.colors.hsv.h !== h) {
           this.$emit('change', {
             h: h,
-            s: this.colors.hsl.s,
-            l: this.colors.hsl.l,
-            a: this.colors.hsl.a,
-            source: 'hsl'
+            s: this.colors.hsv.s,
+            v: this.colors.hsv.v,
           })
         }
       } else {
@@ -107,13 +105,11 @@ export default {
           h = (360 * percent / 100)
         }
 
-        if (this.colors.hsl.h !== h) {
+        if (this.colors.hsv.h !== h) {
           this.$emit('change', {
             h: h,
-            s: this.colors.hsl.s,
-            l: this.colors.hsl.l,
-            a: this.colors.hsl.a,
-            source: 'hsl'
+            s: this.colors.hsv.s,
+            v: this.colors.hsv.v,
           })
         }
       }
