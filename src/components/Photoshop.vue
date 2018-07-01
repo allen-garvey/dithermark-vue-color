@@ -136,7 +136,6 @@ export default {
         if(this.isValidHex(data['#'])){
           this.colorChange({
             hex: data['#'],
-            source: 'hex'
           })
         }
       } else if (containsAnyKey(data, ['r', 'g', 'b', 'a'])) {
@@ -145,21 +144,18 @@ export default {
           g: 'g' in data ? data.g : this.colors.rgba.g,
           b: 'b' in data ? data.b : this.colors.rgba.b,
           a: 'a' in data ? data.a : this.colors.rgba.a,
-          source: 'rgba'
         })
       } else if (containsAnyKey(data, ['h', 's', 'v'])) {
         this.colorChange({
           h: 'h' in data ? wrapHue(data.h) : this.colors.hsv.h,
           s: 's' in data ? (data.s / 100) : this.colors.hsv.s,
           v: 'v' in data ? (data.v / 100) : this.colors.hsv.v,
-          source: 'hsv'
         })
       }
     },
     clickCurrentColor () {
       this.colorChange({
         hex: this.currentColor,
-        source: 'hex'
       })
     },
     handleAccept () {

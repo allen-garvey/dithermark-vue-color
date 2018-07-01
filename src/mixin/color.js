@@ -40,7 +40,6 @@ function _colorChange (data, oldHue) {
     rgba: color.toRgb(),
     hsv: hsv,
     oldHue: data.h || oldHue || hsl.h,
-    source: data.source
   }
 }
 
@@ -76,15 +75,6 @@ export default {
     },
     isValidHex (hex) {
       return tinycolor(hex).isValid()
-    },
-    simpleCheckForValidColor (data) {
-      var isValid = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v'].reduce((isValid, letter) => {
-        return isValid && data[letter] && !isNaN(letter)
-      }, true)
-
-      if (isValid) {
-        return data
-      }
     }
   }
 }
