@@ -1,45 +1,24 @@
 import tinycolor from 'tinycolor2'
 
-function _colorChange (data, oldHue) {
+function _colorChange (data) {
   var color
 
-  // hsl is better than hex between conversions
-  if (data && data.hsl) {
-    color = tinycolor(data.hsl)
-  } else if (data && data.hex && data.hex.length > 0) {
+  if (data && data.hex) {
     color = tinycolor(data.hex)
   } else {
     color = tinycolor(data)
   }
 
-  var hsl = color.toHsl()
   var hsv = color.toHsv()
 
   if (hsl.s === 0) {
     hsv.h = hsl.h = data.h || (data.hsl && data.hsl.h) || oldHue || 0
   }
 
-  /* --- comment this block to fix #109, may cause #25 again --- */
-  // when the hsv.v is less than 0.0164 (base on test)
-  // because of possible loss of precision
-  // the result of hue and saturation would be miscalculated
-  // if (hsv.v < 0.0164) {
-  //   hsv.h = data.h || (data.hsv && data.hsv.h) || 0
-  //   hsv.s = data.s || (data.hsv && data.hsv.s) || 0
-  // }
-
-  // if (hsl.l < 0.01) {
-  //   hsl.h = data.h || (data.hsl && data.hsl.h) || 0
-  //   hsl.s = data.s || (data.hsl && data.hsl.s) || 0
-  // }
-  /* ------ */
-
   return {
-    hsl: hsl,
     hex: color.toHexString().toUpperCase(),
     rgba: color.toRgb(),
-    hsv: hsv,
-    oldHue: data.h || oldHue || hsl.h,
+    hsv: hsv
   }
 }
 
@@ -64,9 +43,8 @@ export default {
     }
   },
   methods: {
-    colorChange (data, oldHue) {
-      this.oldHue = this.colors.hsl.h
-      this.colors = _colorChange(data, oldHue || this.oldHue)
+    colorChange (data) {
+      this.colors = _colorChange(data)
     },
     isValidHex (hex) {
       return tinycolor(hex).isValid()
