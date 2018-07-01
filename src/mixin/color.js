@@ -78,21 +78,11 @@ export default {
       return tinycolor(hex).isValid()
     },
     simpleCheckForValidColor (data) {
-      var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v']
-      var checked = 0
-      var passed = 0
+      var isValid = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v'].reduce((isValid, letter) => {
+        return isValid && data[letter] && !isNaN(letter)
+      }, true)
 
-      for (var i = 0; i < keysToCheck.length; i++) {
-        var letter = keysToCheck[i]
-        if (data[letter]) {
-          checked++
-          if (!isNaN(data[letter])) {
-            passed++
-          }
-        }
-      }
-
-      if (checked === passed) {
+      if (isValid) {
         return data
       }
     }
