@@ -128,6 +128,7 @@ export default {
         if(this.isValidHex(data['#'])){
           this.colorChange({
             hex: data['#'],
+            dataKey,
           })
         }
       } else if (['r', 'g', 'b'].includes(dataKey)) {
@@ -135,12 +136,14 @@ export default {
           r: 'r' === dataKey ? data.r : this.colors.rgba.r,
           g: 'g' === dataKey ? data.g : this.colors.rgba.g,
           b: 'b' === dataKey ? data.b : this.colors.rgba.b,
+          dataKey,
         })
       } else if (['h', 's', 'v'].includes(dataKey)) {
         this.colorChange({
           h: 'h' === dataKey ? wrapHue(data.h) : this.colors.hsv.h,
-          s: 's' === dataKey ? (data.s / 100) : this.colors.hsv.s,
-          v: 'v' === dataKey ? (data.v / 100) : this.colors.hsv.v,
+          s: 's' === dataKey ? data.s : this.colors.hsv.s,
+          v: 'v' === dataKey ? data.v : this.colors.hsv.v,
+          dataKey,
         })
       }
     },

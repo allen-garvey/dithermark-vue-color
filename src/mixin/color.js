@@ -11,8 +11,9 @@ function _colorChange (data) {
 
   var hsv = color.toHsv()
 
-  if (hsl.s === 0) {
-    hsv.h = hsl.h = data.h || (data.hsl && data.hsl.h) || oldHue || 0
+  // make sure hue isn't changed if we didn't change it (should only happen when s or v is 0)
+  if (typeof data === 'object' && data.dataKey !== 'h' && 'h' in data && data.h !== hsv.h) {
+    hsv.h = data.h
   }
 
   return {
