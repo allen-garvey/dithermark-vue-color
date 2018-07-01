@@ -63,11 +63,6 @@ export default {
       }
     }
   },
-  watch: {
-    value (newVal) {
-      this.val = _colorChange(newVal)
-    }
-  },
   methods: {
     colorChange (data, oldHue) {
       this.oldHue = this.colors.hsl.h
