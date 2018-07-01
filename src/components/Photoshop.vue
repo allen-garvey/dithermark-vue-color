@@ -103,7 +103,7 @@ export default {
     hsv () {
       const hsv = this.colors.hsv
       return {
-        h: hsv.h,
+        h: Math.round(hsv.h),
         s: hsv.s,
         v: hsv.v
       }
