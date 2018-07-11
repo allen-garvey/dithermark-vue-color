@@ -5,7 +5,7 @@
     "./src/components/common/*.vue"
   ],
   "version": "2.4.6",
-  "description": "Color of Vue Components",
+  "description": "Colorpicker for Dithermark app",
   "keywords": [
     "color",
     "vuejs"
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/xiaokaike/vue-color"
   },
-  "author": "xiaokai <kexiaokai@gmail.com>",
+  "author": "Allen Garvey, xiaokai <kexiaokai@gmail.com>",
   "dependencies": {},
   "devDependencies": {
     "lodash.throttle": "^4.0.0",
