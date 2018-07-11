@@ -149,10 +149,10 @@ export default {
       })
     },
     handleAccept () {
-      this.$emit('ok', this.val)
+      this.$emit('ok', '#' + this.hex.toLowerCase())
     },
     handleCancel () {
-      this.$emit('cancel', this.currentColor)
+      this.$emit('cancel', this.currentColor.toLowerCase())
     }
   }
 

@@ -41,7 +41,7 @@ export default {
       set (newVal) {
         this.val = newVal
         if (this.shouldLiveUpdate) {
-          this.$emit('input', newVal)
+          this.$emit('input', '#' + newVal.hex.toLowerCase())
         }
       }
     }
