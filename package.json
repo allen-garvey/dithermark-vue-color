@@ -12,8 +12,7 @@
   ],
   "main": "dist/vue-color.min.js",
   "scripts": {
-    "lint": "eslint --ext .js,.vue src",
-    "dev": "npm run lint && webpack --progress --hide-modules --config  ./build/webpack.release.js",
+    "dev": "webpack --progress --hide-modules --config  ./build/webpack.release.js",
     "release": "webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
     "release:watch": "webpack --progress --hide-modules --watch --config  ./build/webpack.release.min.js"
   },
@@ -22,18 +21,11 @@
     "url": "https://github.com/xiaokaike/vue-color"
   },
   "author": "xiaokai <kexiaokai@gmail.com>",
-  "dependencies": {
-    "lodash.throttle": "^4.0.0",
-    "tinycolor2": "^1.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "lodash.throttle": "^4.0.0",
+    "tinycolor2": "^1.4.1",
     "css-loader": "^0.28.11",
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^6.2.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-html": "^2.0.0",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^2.0.1",
     "vue": "^2.5.16",
     "vue-loader": "^15.1.0",
     "vue-style-loader": "^4.1.0",
