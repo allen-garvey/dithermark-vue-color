@@ -11,9 +11,19 @@ function _colorChange (data) {
 
   return {
     hex: color.hex.toUpperCase(),
-    rgb: color.rgb,
-    hsv: hsv
+    rgb: roundObjectValues(color.rgb),
+    hsv: roundObjectValues(hsv),
   }
+}
+
+function roundObjectValues(object){
+  const ret = {}
+
+  for(let key in object){
+    ret[key] = Math.round(object[key])
+  }
+
+  return ret
 }
 
 export default {

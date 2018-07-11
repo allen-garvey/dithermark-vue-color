@@ -101,12 +101,7 @@ export default {
   },
   computed: {
     hsv () {
-      const hsv = this.colors.hsv
-      return {
-        h: Math.round(hsv.h),
-        s: hsv.s,
-        v: hsv.v
-      }
+      return this.colors.hsv
     },
     hex () {
       const hex = this.colors.hex
