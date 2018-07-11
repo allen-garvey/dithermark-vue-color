@@ -85,6 +85,9 @@ function hsvToRgb(h, s, v) {
 //h in [0, 360]
 //s,v in [0,100]
 function rgbToHsv(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
 
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
