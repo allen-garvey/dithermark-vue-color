@@ -24,7 +24,7 @@
         <div class="vc-ps-previews">
           <div class="vc-ps-previews__label">new</div>
           <div class="vc-ps-previews__swatches">
-            <div class="vc-ps-previews__pr-color" :aria-label="'newColor:' + colors.hex" :style="{background: colors.hex}"></div>
+            <div class="vc-ps-previews__pr-color" :aria-label="'newColor:' + colors.hex" :style="{background: '#'+hex}"></div>
             <div class="vc-ps-previews__pr-color" :aria-label="'currentColor:' + currentColor" :style="{background: currentColor}" @click="clickCurrentColor"></div>
           </div>
           <div class="vc-ps-previews__label">current</div>
@@ -34,14 +34,14 @@
             <!-- hsv -->
             <div class="vc-ps-fields-group vc-ps-hsv-fields">
               <ed-in label="h" data-name="h" title="Hue" type="number" :value="hsv.h" @change="inputChange"></ed-in>
-              <ed-in label="s" data-name="s" title="Saturation" type="percent" :value="hsv.s" :max="1" :min="0" @change="inputChange"></ed-in>
-              <ed-in label="v" data-name="v" title="Value" type="percent" :value="hsv.v" :max="1" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="s" data-name="s" title="Saturation" type="number" :value="hsv.s" :max="100" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="v" data-name="v" title="Value" type="number" :value="hsv.v" :max="100" :min="0" @change="inputChange"></ed-in>
             </div>
-            <!-- rgba -->
+            <!-- rgb -->
             <div class="vc-ps-fields-group vc-ps-rgb-fields">
-              <ed-in label="r" data-name="r" title="Red" type="number" :value="colors.rgba.r" :max="255" :min="0" @change="inputChange"></ed-in>
-              <ed-in label="g" data-name="g" title="Green" type="number" :value="colors.rgba.g" :max="255" :min="0" @change="inputChange"></ed-in>
-              <ed-in label="b" data-name="b" title="Blue" type="number" :value="colors.rgba.b" :max="255" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="r" data-name="r" title="Red" type="number" :value="colors.rgb.r" :max="255" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="g" data-name="g" title="Green" type="number" :value="colors.rgb.g" :max="255" :min="0" @change="inputChange"></ed-in>
+              <ed-in label="b" data-name="b" title="Blue" type="number" :value="colors.rgb.b" :max="255" :min="0" @change="inputChange"></ed-in>
             </div>
             <!-- hex -->
             <div class="vc-ps-fields-group vc-ps-hex-fields">
@@ -114,7 +114,7 @@ export default {
     }
   },
   created () {
-    this.currentColor = this.colors.hex
+    this.currentColor = '#' + this.hex
   },
   methods: {
     childChange (data) {
@@ -128,14 +128,14 @@ export default {
         if(this.isValidHex(data['#'])){
           this.colorChange({
             hex: data['#'],
-            dataKey,
+            dataKey: 'hex',
           })
         }
       } else if (['r', 'g', 'b'].includes(dataKey)) {
         this.colorChange({
-          r: 'r' === dataKey ? data.r : this.colors.rgba.r,
-          g: 'g' === dataKey ? data.g : this.colors.rgba.g,
-          b: 'b' === dataKey ? data.b : this.colors.rgba.b,
+          r: 'r' === dataKey ? data.r : this.colors.rgb.r,
+          g: 'g' === dataKey ? data.g : this.colors.rgb.g,
+          b: 'b' === dataKey ? data.b : this.colors.rgb.b,
           dataKey,
         })
       } else if (['h', 's', 'v'].includes(dataKey)) {
@@ -150,6 +150,7 @@ export default {
     clickCurrentColor () {
       this.colorChange({
         hex: this.currentColor,
+        dataKey: 'hex',
       })
     },
     handleAccept () {

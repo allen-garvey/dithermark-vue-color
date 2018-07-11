@@ -47,24 +47,13 @@ export default {
     },
     displayVal: {
       get () {
-        if(this.type === 'percent'){
-          return Math.round(this.val * 100)
-        }
         return this.val
       },
       set (v) {
-        if(this.type === 'percent'){
-          this.val = v / 100
-        }
-        else{
-          this.val = v
-        }
+        this.val = v
       }
     },
     inputType: function(){
-      if(this.type === 'percent'){
-        return 'number'
-      }
       return this.type
     }
   },

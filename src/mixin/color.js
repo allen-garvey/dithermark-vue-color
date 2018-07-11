@@ -1,15 +1,8 @@
-import tinycolor from 'tinycolor2'
+import ColorMath from '../color-math.js'
 
 function _colorChange (data) {
-  var color
-
-  if (data && data.hex) {
-    color = tinycolor(data.hex)
-  } else {
-    color = tinycolor(data)
-  }
-
-  var hsv = color.toHsv()
+  const color = ColorMath.createColor(data)
+  const hsv = color.hsv
 
   // make sure hue isn't changed if we didn't change it (should only happen when s or v is 0)
   if (typeof data === 'object' && data.dataKey !== 'h' && 'h' in data && data.h !== hsv.h) {
@@ -17,8 +10,8 @@ function _colorChange (data) {
   }
 
   return {
-    hex: color.toHexString().toUpperCase(),
-    rgba: color.toRgb(),
+    hex: color.hex.toUpperCase(),
+    rgb: color.rgb,
     hsv: hsv
   }
 }
@@ -48,7 +41,7 @@ export default {
       this.colors = _colorChange(data)
     },
     isValidHex (hex) {
-      return tinycolor(hex).isValid()
+      return ColorMath.isHexStringValid(hex)
     }
   }
 }

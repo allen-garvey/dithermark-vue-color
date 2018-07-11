@@ -29,10 +29,10 @@ export default {
       return `hsl(${this.colors.hsv.h}, 100%, 50%)`
     },
     pointerTop () {
-      return (-(this.colors.hsv.v * 100) + 1) + 100 + '%'
+      return (-(this.colors.hsv.v) + 1) + 100 + '%'
     },
     pointerLeft () {
-      return this.colors.hsv.s * 100 + '%'
+      return this.colors.hsv.s + '%'
     }
   },
   methods: {
@@ -74,9 +74,8 @@ export default {
 
       this.throttle(this.onChange, {
         h: this.colors.hsv.h,
-        s: saturation,
-        v: bright,
-        a: this.colors.hsv.a,
+        s: saturation * 100,
+        v: bright * 100,
         source: 'hsva'
       })
     },
