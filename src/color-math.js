@@ -175,7 +175,7 @@ function hexStringToRgb(hexString) {
 // Converts an RGB color to hex
 // Assumes r, g, and b are contained in the set [0, 255]
 // Returns a 3 or 6 character hex
-function rgbToHex(r, g, b, allow3Char=true) {
+function rgbToHex(r, g, b, allow3Char=false) {
 
     const hex = [
         pad2(Math.round(r).toString(16)),
