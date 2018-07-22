@@ -24,7 +24,6 @@
   "dependencies": {},
   "devDependencies": {
     "lodash.throttle": "^4.0.0",
-    "tinycolor2": "^1.4.1",
     "css-loader": "^0.28.11",
     "vue": "^2.5.16",
     "vue-loader": "^15.1.0",
