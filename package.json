@@ -1,10 +1,10 @@
 {
-  "name": "vue-color",
+  "name": "dithermark-vue-color",
   "sideEffects": [
     "./src/components/*.vue",
     "./src/components/common/*.vue"
   ],
-  "version": "2.4.6",
+  "version": "1.0.0",
   "description": "Colorpicker for Dithermark app",
   "keywords": [
     "color",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/xiaokaike/vue-color"
   },
-  "author": "Allen Garvey, xiaokai <kexiaokai@gmail.com>",
+  "author": "Allen Garvey",
   "dependencies": {},
   "devDependencies": {
     "lodash.throttle": "^4.0.0",
