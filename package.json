@@ -4,7 +4,7 @@
     "./src/components/*.vue",
     "./src/components/common/*.vue"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Colorpicker for Dithermark app",
   "keywords": [
     "color",
