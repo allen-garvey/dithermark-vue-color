@@ -4,16 +4,17 @@
     "./src/components/*.vue",
     "./src/components/common/*.vue"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Colorpicker for Dithermark app",
   "keywords": [
     "color",
     "vuejs"
   ],
-  "main": "dist/vue-color.min.js",
+  "main": "dist/vue-color.module.js",
   "scripts": {
     "dev": "webpack --progress --hide-modules --config  ./build/webpack.release.js",
     "release": "webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
+    "release:module": "webpack --progress --hide-modules --config  ./build/webpack.release.module.js && node ./build/convert-commonjs-to-es6.js",
     "release:watch": "webpack --progress --hide-modules --watch --config  ./build/webpack.release.min.js"
   },
   "repository": {
@@ -23,8 +24,9 @@
   "author": "Allen Garvey",
   "dependencies": {},
   "devDependencies": {
-    "lodash.throttle": "^4.0.0",
     "css-loader": "^0.28.11",
+    "lodash.throttle": "^4.0.0",
+    "replace-in-file": "^3.4.2",
     "vue": "^2.5.16",
     "vue-loader": "^15.1.0",
     "vue-style-loader": "^4.1.0",
