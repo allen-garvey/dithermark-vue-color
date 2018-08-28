@@ -22,10 +22,11 @@
     "url": "https://github.com/allen-garvey/dithermark-vue-color"
   },
   "author": "Allen Garvey",
-  "dependencies": {},
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  },
   "devDependencies": {
     "css-loader": "^0.28.11",
-    "lodash.throttle": "^4.0.0",
     "replace-in-file": "^3.4.2",
     "vue": "^2.5.16",
     "vue-loader": "^15.1.0",
