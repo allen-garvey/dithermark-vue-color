@@ -4,5 +4,5 @@ npm-debug.log
 .idea
 example-dist
 .vscode
-dist/vue-color.js
+dist/*
 .directory
