@@ -20,7 +20,7 @@ export default {
     dataName: String,
     title: String,
     type: String,
-    modelValue: [String, Number],
+    value: [String, Number],
     max: Number,
     min: Number,
     arrowOffset: {
@@ -31,7 +31,7 @@ export default {
   computed: {
     val: {
       get () {
-        return this.modelValue;
+        return this.value;
       },
       set (v) {
         if (this.max !== undefined && +v > this.max) {
