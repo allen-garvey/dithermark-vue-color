@@ -4,7 +4,7 @@ Fork of [vue-color v2.4.6](https://github.com/xiaokaike/vue-color) to create cus
 
 ## Dependencies
 
-* Vue.js 2.0
+* Vue 3.0
 * Modern web browser
 
 ## Building
