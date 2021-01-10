@@ -30,33 +30,41 @@ export default {
   },
   computed: {
     colors () {
-      const h = this.modelValue.hsv.h
-      if (h !== 0 && h - this.oldHue > 0) this.pullDirection = 'right'
-      if (h !== 0 && h - this.oldHue < 0) this.pullDirection = 'left'
-      this.oldHue = h
+      const h = this.modelValue.hsv.h;
+      if (h !== 0 && h - this.oldHue > 0) {
+        this.pullDirection = 'right';
+      }
+      else if (h !== 0 && h - this.oldHue < 0) {
+        this.pullDirection = 'left';
+      }
+      this.oldHue = h;
 
-      return this.modelValue
+      return this.modelValue;
     },
     directionClass () {
       return {
         'vc-hue--horizontal': this.direction === 'horizontal',
         'vc-hue--vertical': this.direction === 'vertical'
-      }
+      };
     },
     pointerTop () {
       if (this.direction === 'vertical') {
-        if (this.colors.hsv.h === 0 && this.pullDirection === 'right') return 0
-        return -((this.colors.hsv.h * 100) / 360) + 100 + '%'
+        if (this.colors.hsv.h === 0 && this.pullDirection === 'right') {
+          return 0;
+        }
+        return -((this.colors.hsv.h * 100) / 360) + 100 + '%';
       } else {
-        return 0
+        return 0;
       }
     },
     pointerLeft () {
       if (this.direction === 'vertical') {
-        return 0
+        return 0;
       } else {
-        if (this.colors.hsv.h === 0 && this.pullDirection === 'right') return '100%'
-        return (this.colors.hsv.h * 100) / 360 + '%'
+        if (this.colors.hsv.h === 0 && this.pullDirection === 'right') {
+          return '100%';
+        }
+        return (this.colors.hsv.h * 100) / 360 + '%';
       }
     }
   },
@@ -64,28 +72,28 @@ export default {
     handleChange (e, skip) {
       !skip && e.preventDefault()
 
-      var container = this.$refs.container
-      var containerWidth = container.clientWidth
-      var containerHeight = container.clientHeight
+      const container = this.$refs.container;
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
 
-      var xOffset = container.getBoundingClientRect().left + window.pageXOffset
-      var yOffset = container.getBoundingClientRect().top + window.pageYOffset
-      var pageX = e.pageX || (e.touches ? e.touches[0].pageX : 0)
-      var pageY = e.pageY || (e.touches ? e.touches[0].pageY : 0)
-      var left = pageX - xOffset
-      var top = pageY - yOffset
+      const xOffset = container.getBoundingClientRect().left + window.pageXOffset;
+      const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
+      const pageX = e.pageX || (e.touches ? e.touches[0].pageX : 0);
+      const pageY = e.pageY || (e.touches ? e.touches[0].pageY : 0);
+      const left = pageX - xOffset;
+      const top = pageY - yOffset;
 
-      var h
-      var percent
+      let h;
+      let percent;
 
       if (this.direction === 'vertical') {
         if (top < 0) {
-          h = 360
+          h = 360;
         } else if (top > containerHeight) {
-          h = 0
+          h = 0;
         } else {
-          percent = -(top * 100 / containerHeight) + 100
-          h = (360 * percent / 100)
+          percent = -(top * 100 / containerHeight) + 100;
+          h = (360 * percent / 100);
         }
 
         if (this.colors.hsv.h !== h) {
@@ -93,16 +101,16 @@ export default {
             h: h,
             s: this.colors.hsv.s,
             v: this.colors.hsv.v,
-          })
+          });
         }
       } else {
         if (left < 0) {
-          h = 0
+          h = 0;
         } else if (left > containerWidth) {
-          h = 360
+          h = 360;
         } else {
-          percent = left * 100 / containerWidth
-          h = (360 * percent / 100)
+          percent = left * 100 / containerWidth;
+          h = (360 * percent / 100);
         }
 
         if (this.colors.hsv.h !== h) {
@@ -110,21 +118,21 @@ export default {
             h: h,
             s: this.colors.hsv.s,
             v: this.colors.hsv.v,
-          })
+          });
         }
       }
     },
     handleMouseDown (e) {
       this.handleChange(e, true)
-      window.addEventListener('mousemove', this.handleChange)
-      window.addEventListener('mouseup', this.handleMouseUp)
+      window.addEventListener('mousemove', this.handleChange);
+      window.addEventListener('mouseup', this.handleMouseUp);
     },
     handleMouseUp (e) {
-      this.unbindEventListeners()
+      this.unbindEventListeners();
     },
     unbindEventListeners () {
-      window.removeEventListener('mousemove', this.handleChange)
-      window.removeEventListener('mouseup', this.handleMouseUp)
+      window.removeEventListener('mousemove', this.handleChange);
+      window.removeEventListener('mouseup', this.handleMouseUp);
     }
   }
 }
