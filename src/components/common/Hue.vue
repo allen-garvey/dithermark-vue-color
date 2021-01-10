@@ -15,7 +15,7 @@
 export default {
   name: 'Hue',
   props: {
-    value: Object,
+    modelValue: Object,
     direction: {
       type: String,
       // [horizontal | vertical]
@@ -30,12 +30,12 @@ export default {
   },
   computed: {
     colors () {
-      const h = this.value.hsv.h
+      const h = this.modelValue.hsv.h
       if (h !== 0 && h - this.oldHue > 0) this.pullDirection = 'right'
       if (h !== 0 && h - this.oldHue < 0) this.pullDirection = 'left'
       this.oldHue = h
 
-      return this.value
+      return this.modelValue
     },
     directionClass () {
       return {

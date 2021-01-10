@@ -20,7 +20,7 @@ export default {
     dataName: String,
     title: String,
     type: String,
-    value: [String, Number],
+    modelValue: [String, Number],
     max: Number,
     min: Number,
     arrowOffset: {
@@ -31,30 +31,30 @@ export default {
   computed: {
     val: {
       get () {
-        return this.value
+        return this.modelValue;
       },
       set (v) {
         if (this.max !== undefined && +v > this.max) {
-          this.$refs.input.value = this.max
+          this.$refs.input.value = this.max;
         } 
         else if(this.min !== undefined && +v < this.min){
-          this.$refs.input.value = this.min
+          this.$refs.input.value = this.min;
         }
         else {
-          return v
+          return v;
         }
       }
     },
     displayVal: {
       get () {
-        return this.val
+        return this.val;
       },
       set (v) {
-        this.val = v
+        this.val = v;
       }
     },
     inputType: function(){
-      return this.type
+      return this.type;
     }
   },
   methods: {
@@ -62,43 +62,32 @@ export default {
       this.handleChange(e.target.value)
     },
     handleChange (newVal) {
-      let data = {}
-      data[this.dataName] = newVal
-      this.$emit('change', data, this.dataName)
+      const data = {};
+      data[this.dataName] = newVal;
+      this.$emit('change', data, this.dataName);
     },
-    // **** unused
-    // handleBlur (e) {
-    //   console.log(e)
-    // },
     handleKeyDown (e) {
-      let val = this.val
-      let number = Number(val)
+      let val = this.val;
+      const number = Number(val);
 
       if (number) {
-        let amount = this.arrowOffset || 1
+        const amount = this.arrowOffset || 1;
 
         // Up
         if (e.keyCode === 38) {
-          val = number + amount
-          this.handleChange(val)
-          e.preventDefault()
+          val = number + amount;
+          this.handleChange(val);
+          e.preventDefault();
         }
 
         // Down
         if (e.keyCode === 40) {
-          val = number - amount
-          this.handleChange(val)
-          e.preventDefault()
+          val = number - amount;
+          this.handleChange(val);
+          e.preventDefault();
         }
       }
     }
-    // **** unused
-    // handleDrag (e) {
-    //   console.log(e)
-    // },
-    // handleMouseDown (e) {
-    //   console.log(e)
-    // }
   }
 }
 </script>

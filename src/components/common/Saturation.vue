@@ -19,11 +19,11 @@ import throttle from 'lodash.throttle'
 export default {
   name: 'Saturation',
   props: {
-    value: Object
+    modelValue: Object
   },
   computed: {
     colors () {
-      return this.value
+      return this.modelValue
     },
     bgColor () {
       return `hsl(${this.colors.hsv.h}, 100%, 50%)`
