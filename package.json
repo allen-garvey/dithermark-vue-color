@@ -4,7 +4,7 @@
     "./src/components/*.vue",
     "./src/components/common/*.vue"
   ],
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Colorpicker for Dithermark app",
   "keywords": [
     "color",
@@ -12,10 +12,7 @@
   ],
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack --progress --hide-modules --config  ./build/webpack.release.js",
-    "release": "webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
-    "release:module": "webpack --progress --hide-modules --config  ./build/webpack.release.module.js && node ./build/convert-commonjs-to-es6.js",
-    "release:watch": "webpack --progress --hide-modules --watch --config  ./build/webpack.release.min.js"
+    "build": "webpack --config  ./build/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -26,14 +23,13 @@
     "lodash.throttle": "^4.1.1"
   },
   "devDependencies": {
-    "css-loader": "^4.3.0",
-    "replace-in-file": "^6.1.0",
+    "css-loader": "^5.0.1",
     "vue": "^2.6.12",
-    "vue-loader": "^15.9.3",
+    "vue-loader": "^15.9.6",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1"
   },
   "license": "MIT"
 }

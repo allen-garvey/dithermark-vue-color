@@ -10,8 +10,8 @@ Fork of [vue-color v2.4.6](https://github.com/xiaokaike/vue-color) to create cus
 ## Building
 
 * `npm install`
-* `npm run release`
-* Compiled and minified files located in `dist` directory
+* `npm run build`
+* Compiled files located in `dist` directory
 
 ## Usage
 
