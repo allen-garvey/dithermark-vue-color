@@ -27,10 +27,10 @@ function roundObjectValues(object){
 }
 
 export default {
-  props: ['value'],
+  props: ['modelValue'],
   data () {
     return {
-      val: _colorChange(this.value)
+      val: _colorChange(this.modelValue)
     }
   },
   computed: {
@@ -41,7 +41,7 @@ export default {
       set (newVal) {
         this.val = newVal
         if (this.shouldLiveUpdate) {
-          this.$emit('input', '#' + newVal.hex.toLowerCase())
+          this.$emit('update:modelValue', '#' + newVal.hex.toLowerCase())
         }
       }
     }
