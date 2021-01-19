@@ -89,6 +89,7 @@ export default {
       default: true
     }
   },
+  emits: ['update:modelValue', 'ok', 'cancel'],
   components: {
     saturation,
     hue,
