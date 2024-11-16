@@ -73,18 +73,17 @@ export default {
       if (number) {
         const amount = this.arrowOffset || 1;
 
-        // Up
-        if (e.keyCode === 38) {
-          val = number + amount;
-          this.handleChange(val);
-          e.preventDefault();
-        }
-
-        // Down
-        if (e.keyCode === 40) {
-          val = number - amount;
-          this.handleChange(val);
-          e.preventDefault();
+        switch(e.key) {
+          case 'ArrowUp':
+            val = number + amount;
+            this.handleChange(val);
+            e.preventDefault();
+            break;
+          case 'ArrowDown':
+            val = number - amount;
+            this.handleChange(val);
+            e.preventDefault();
+            break;
         }
       }
     }
